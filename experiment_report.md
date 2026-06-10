@@ -1,8 +1,8 @@
 # Experiment Report: Data Quality Impact on AI Agent
 
-**Student ID:** AI20K-XXXX
-**Name:** (Dien ten cua ban)
-**Date:** (Dien ngay thuc hien)
+**Student ID:** 2A202600990
+**Name:** Dương Trường Giang
+**Date:** 11/06/2026
 
 ---
 
@@ -21,24 +21,24 @@ Chay `agent_simulation.py` voi 2 bo du lieu va ghi lai ket qua:
 
 ### Tai sao Agent tra loi sai khi dung Garbage Data?
 
-Khi su dung du lieu "Garbage Data", Agent dua ra cau tra loi sai vi du lieu bi nhiem ban (corrupted).
-Cac van de cu the bao gom:
+Khi sử dụng dữ liệu "Garbage Data", Agent đưa ra câu trả lời sai vì dữ liệu bị nhiễu (corrupted).
+Các vấn đề cụ thể bao gồm:
 
-1. **Du lieu rac (Garbage Values):** Trong tap du lieu rac co chua cac gia tri khong hop le nhu "Poisoned", "-1", "0", va null values.
-   - Cac gia tri "-1" va "0" lam sai chech du lieu nhap vao mo hình, khien Agent nghi rang co san pham voi gia tien cuc thap hoac bang 0.
-   - Cac nhan xet "Poisoned" lam hu vector embeddings, khien Agent khong the nhan dien dung category san pham.
+1. **Dữ liệu rác (Garbage Values):** Trong tập dữ liệu rác có chứa các giá trị không hợp lệ như "Poisoned", "-1", "0", và null values.
+   - Các giá trị "-1" và "0" làm sai lệch dữ liệu nhập vào mô hình, khiến Agent nghĩ rằng có sản phẩm với giá tiền cực thấp hoặc bằng 0.
+   - Các nhãn "Poisoned" làm hỏng vector embeddings, khiến Agent không thể nhận diện đúng category sản phẩm.
 
-2. **Du lieu trung lap (Duplicate Data):** Tap du lieu rac co du lieu trung lap nhieu lan, lam sai chech phan phoi du lieu.
-   - Dieu nay khien Agent nghi rang cac san pham "Poisoned" la pho bien, trong khi thuc te chung chi la du lieu rac duoc lap lai.
+2. **Dữ liệu trùng lặp (Duplicate Data):** Tập dữ liệu rác có dữ liệu trùng lặp nhiều lần, làm sai lệch phân phối dữ liệu.
+   - Điều này khiến Agent nghĩ rằng các sản phẩm "Poisoned" là phổ biến, trong khi thực tế chúng chỉ là dữ liệu rác được lặp lại.
 
-3. **Du lieu khong hop le (Invalid Data):** Cac san pham voi gia tri null hoac du lieu rac lam sai lech cac tinh nang thong ke nhu min, max, mean.
-   - Khi Agent tim kiem san pham co gia cao nhat, no co the chon nham cac san pham "Poisoned" vi chung co gia tri duoc lap lai nhieu lan.
+3. **Dữ liệu không hợp lệ (Invalid Data):** Các sản phẩm với giá trị null hoặc dữ liệu rác làm sai lệch các tính năng thống kê như min, max, mean.
+   - Khi Agent tìm kiếm sản phẩm có giá cao nhất, nó có thể chọn nhầm các sản phẩm "Poisoned" vì chúng có giá trị được lặp lại nhiều lần.
 
-Ket qua la, Agent dua ra cau tra loi sai vi du lieu duoc truyen vao mo hình khong chinh xac va khong phan anh dung thuc te. Dieu nay cho thay tam quan trong cua viec tien hanh xu ly du lieu (data preprocessing) truoc khi su dung du lieu cho cac mo hình AI.
+Kết quả là, Agent đưa ra câu trả lời sai vì dữ liệu được truyền vào mô hình không chính xác và không phản ánh đúng thực tế. Điều này cho thấy tầm quan trọng của việc tiến hành xử lý dữ liệu (data preprocessing) trước khi sử dụng dữ liệu cho các mô hình AI.
 
 ---
 
-## 3. Ket luan
+## 3. Kết luận
 
 **Quality Data > Quality Prompt?** (Dong y hay khong? Giai thich ngan gon.)
 
