@@ -85,7 +85,7 @@ def validate(data):
             valid_records.append(record)
         else:
             error_count += 1
-    print(f"Validation complete. Records processed: {len(data)}, Records dropped: {error_count}")
+    print(f"Validation summary: {len(valid_records)} valid records, {error_count} dropped records.")
     return valid_records
 
 
